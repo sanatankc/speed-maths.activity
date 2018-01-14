@@ -24,11 +24,13 @@ const Pop = styled.div`
   color: #304860;
   border-radius: 5px;
   align-items: center;
-  min-width: calc(100vw - 60px);
   width: calc(100% - 150px);
   height: 200px;
   letter-spacing: 2px;
   margin-bottom: 20px;
+  @media only screen and (max-width: 500px) {
+    width: calc(100vw - 60px);
+  }
 `
 const BigText = styled.div`
   font-size: 36px;
@@ -66,8 +68,10 @@ const SpeedButton = styled.div`
 const SpeedButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  min-width: calc(100vw - 60px);
   width: calc(100% - 150px);
+  @media only screen and (max-width: 500px) {
+    width: calc(100vw - 60px);
+  }
 `
 export default class Menu extends Component {
   render() {
