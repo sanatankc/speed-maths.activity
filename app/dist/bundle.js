@@ -12197,6 +12197,21 @@ var Game = function (_Component) {
   }
 
   _createClass(Game, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      window.addEventListener('keydown', function (e) {
+        if (!_this2.state.shouldMenuShow) {
+          if (e.key === 'ArrowLeft') {
+            _this2.onRightClick();
+          } else if (e.key === 'ArrowRight') {
+            _this2.onWrongClick();
+          }
+        }
+      });
+    }
+  }, {
     key: 'setQuestionandAnswers',
     value: function setQuestionandAnswers() {
       var question = this.generateQuestion();
@@ -12213,7 +12228,7 @@ var Game = function (_Component) {
   }, {
     key: 'setTimer',
     value: function setTimer() {
-      var _this2 = this;
+      var _this3 = this;
 
       var timerSets = [6000, 4000, 2000];
       this.timer = new _timerStopwatch2.default(timerSets[this.state.difficulty]);
@@ -12221,14 +12236,14 @@ var Game = function (_Component) {
       var counter = 0;
       this.timer.onTime(function (time) {
         var width = mapRange({
-          from: [timerSets[_this2.state.difficulty], 0],
+          from: [timerSets[_this3.state.difficulty], 0],
           to: [100, 0]
         }, time.ms);
-        _this2.loader.style.width = width + '%';
+        _this3.loader.style.width = width + '%';
         counter++;
       });
       this.timer.onDone(function () {
-        _this2.doGameOver();
+        _this3.doGameOver();
       });
     }
   }, {
@@ -12313,7 +12328,7 @@ var Game = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _react2.default.createElement(
         Container,
@@ -12334,7 +12349,7 @@ var Game = function (_Component) {
             GameContainer,
             null,
             _react2.default.createElement(Loader, { innerRef: function innerRef(loader) {
-                _this3.loader = loader;
+                _this4.loader = loader;
               } }),
             _react2.default.createElement(
               Score,

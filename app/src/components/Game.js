@@ -111,6 +111,17 @@ export default class Game extends Component {
     this.onDifficulty = this.onDifficulty.bind(this)
   }
 
+  componentDidMount() {
+    window.addEventListener('keydown', e => {
+      if (!this.state.shouldMenuShow) {
+        if (e.key === 'ArrowLeft') {
+          this.onRightClick()
+        } else if (e.key === 'ArrowRight') {
+          this.onWrongClick()
+        }
+      }
+    })
+  }
 
   setQuestionandAnswers() {
     const question = this.generateQuestion()
