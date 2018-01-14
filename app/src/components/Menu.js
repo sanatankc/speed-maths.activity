@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
@@ -73,6 +74,16 @@ const SpeedButtonContainer = styled.div`
     width: calc(100vw - 60px);
   }
 `
+const Tip = styled.div`
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  color: #b7c7d7;
+  letter-spacing: 1.2px;
+  line-height: 19px;
+  text-align: center;
+`
 export default class Menu extends Component {
   render() {
     const { show, difficulty, onPlay , onDifficulty, score, bestScore, isThisFirstTime} = this.props
@@ -86,6 +97,7 @@ export default class Menu extends Component {
                 <ScoreText>Best Score: {bestScore}</ScoreText>
               </div>
             }
+            <Tip>Tip: You can also use arrow keys, i.e left arrow for right answer and right arrow for wrong answers</Tip>
           </Pop>
           <PlayButton onClick={onPlay} />
           <SpeedButtonContainer>

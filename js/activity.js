@@ -12411,7 +12411,8 @@ var _templateObject = _taggedTemplateLiteral(['\n  position: absolute;\n  top: 0
     _templateObject4 = _taggedTemplateLiteral(['\n  &:first-child {\n    padding-top: 20px;\n  }\n  &:last-child {\n    padding-top: 10px;\n  }\n'], ['\n  &:first-child {\n    padding-top: 20px;\n  }\n  &:last-child {\n    padding-top: 10px;\n  }\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n  cursor: pointer;\n  width: 60px;\n  height: 50px;\n  background: url(\'icons/play.svg\');\n  margin-bottom: 40px;\n'], ['\n  cursor: pointer;\n  width: 60px;\n  height: 50px;\n  background: url(\'icons/play.svg\');\n  margin-bottom: 40px;\n']),
     _templateObject6 = _taggedTemplateLiteral(['\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background: ', ';\n  height: 38px;\n  width: 90px;\n  border-radius: 5px;\n  font-size: 14px;\n  cursor: pointer;\n  color: ', ';\n  letter-spacing: 2px;\n  border: 2px solid #b7c7d7;\n'], ['\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background: ', ';\n  height: 38px;\n  width: 90px;\n  border-radius: 5px;\n  font-size: 14px;\n  cursor: pointer;\n  color: ', ';\n  letter-spacing: 2px;\n  border: 2px solid #b7c7d7;\n']),
-    _templateObject7 = _taggedTemplateLiteral(['\n  display: flex;\n  justify-content: space-between;\n  width: calc(100% - 150px);\n  @media only screen and (max-width: 500px) {\n    width: calc(100vw - 60px);\n  }\n'], ['\n  display: flex;\n  justify-content: space-between;\n  width: calc(100% - 150px);\n  @media only screen and (max-width: 500px) {\n    width: calc(100vw - 60px);\n  }\n']);
+    _templateObject7 = _taggedTemplateLiteral(['\n  display: flex;\n  justify-content: space-between;\n  width: calc(100% - 150px);\n  @media only screen and (max-width: 500px) {\n    width: calc(100vw - 60px);\n  }\n'], ['\n  display: flex;\n  justify-content: space-between;\n  width: calc(100% - 150px);\n  @media only screen and (max-width: 500px) {\n    width: calc(100vw - 60px);\n  }\n']),
+    _templateObject8 = _taggedTemplateLiteral(['\n  position: absolute;\n  bottom: 30px;\n  left: 30px;\n  right: 30px;\n  color: #b7c7d7;\n  letter-spacing: 1.2px;\n  line-height: 19px;\n  text-align: center;\n'], ['\n  position: absolute;\n  bottom: 30px;\n  left: 30px;\n  right: 30px;\n  color: #b7c7d7;\n  letter-spacing: 1.2px;\n  line-height: 19px;\n  text-align: center;\n']);
 
 var _react = __webpack_require__(2);
 
@@ -12445,6 +12446,7 @@ var SpeedButton = _styledComponents2.default.div(_templateObject6, function (pro
   return props.selected ? '#304860' : '#b7c7d7';
 });
 var SpeedButtonContainer = _styledComponents2.default.div(_templateObject7);
+var Tip = _styledComponents2.default.div(_templateObject8);
 
 var Menu = function (_Component) {
   _inherits(Menu, _Component);
@@ -12493,6 +12495,11 @@ var Menu = function (_Component) {
               'Best Score: ',
               bestScore
             )
+          ),
+          _react2.default.createElement(
+            Tip,
+            null,
+            'Tip: You can also use arrow keys, i.e left arrow for right answer and right arrow for wrong answers'
           )
         ),
         _react2.default.createElement(PlayButton, { onClick: onPlay }),
