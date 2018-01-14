@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class App extends Component {
   render() {
     return (
-      <h1>Counter: {this.props.counter}</h1>
+      <span>Hello World</span>
     )
   }
 }
