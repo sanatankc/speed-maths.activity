@@ -24,6 +24,7 @@ const Pop = styled.div`
   color: #304860;
   border-radius: 5px;
   align-items: center;
+  min-width: calc(100vw - 60px);
   width: calc(100% - 150px);
   height: 200px;
   letter-spacing: 2px;
@@ -65,6 +66,7 @@ const SpeedButton = styled.div`
 const SpeedButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  min-width: calc(100vw - 60px);
   width: calc(100% - 150px);
 `
 export default class Menu extends Component {
