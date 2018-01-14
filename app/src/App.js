@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import Game from './components/Game'
 
 class App extends Component {
   render() {
     return (
-      <span>Hello World</span>
+      <Game />
     )
   }
 }

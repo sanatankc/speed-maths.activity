@@ -7784,6 +7784,10 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Game = __webpack_require__(38);
+
+var _Game2 = _interopRequireDefault(_Game);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -7804,12 +7808,7 @@ var App = function (_Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'h1',
-        null,
-        'Counter: ',
-        this.props.counter
-      );
+      return _react2.default.createElement(_Game2.default, null);
     }
   }]);
 
@@ -7870,10 +7869,8 @@ var Toolbar = function (_Component) {
       return _react2.default.createElement(
         'div',
         { id: 'main-toolbar', className: 'react-toolbar toolbar' },
-        _react2.default.createElement('button', { className: 'toolbutton', id: 'activity-button', title: 'My Activity' }),
-        _react2.default.createElement('button', { className: 'toolbutton pull-right', id: 'stop-button', title: 'Stop' }),
-        _react2.default.createElement(PlayButton, { className: 'toolbutton', title: 'Plus', onClick: this.props.onIncrement }),
-        _react2.default.createElement(MinusButton, { className: 'toolbutton', title: 'Minus', onClick: this.props.onDecrement })
+        _react2.default.createElement('button', { className: 'toolbutton', id: 'activity-button', title: 'Speed Maths' }),
+        _react2.default.createElement('button', { className: 'toolbutton pull-right', id: 'stop-button', title: 'Stop' })
       );
     }
   }]);
@@ -12111,6 +12108,235 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
     return targetComponent;
 };
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  background: #b7c7d7;\n  font-family: \'Ubuntu\', sans-serif;\n'], ['\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  background: #b7c7d7;\n  font-family: \'Ubuntu\', sans-serif;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  width: calc((100vh - 55px - 70px) / 1.5);\n  height: calc(100vh - 55px - 70px);\n  max-width: 100vw;\n  background: #304860;\n  box-shadow: 5px 5px 25px 0 rgba(46,61,73,1);\n  overflow: hidden;\n  @media only screen and (max-width: 470px) {\n    width: calc((100vh - 55px ) / 1.5);\n    height: calc(100vh - 55px);\n  }\n'], ['\n  width: calc((100vh - 55px - 70px) / 1.5);\n  height: calc(100vh - 55px - 70px);\n  max-width: 100vw;\n  background: #304860;\n  box-shadow: 5px 5px 25px 0 rgba(46,61,73,1);\n  overflow: hidden;\n  @media only screen and (max-width: 470px) {\n    width: calc((100vh - 55px ) / 1.5);\n    height: calc(100vh - 55px);\n  }\n']);
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(29);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Menu = __webpack_require__(39);
+
+var _Menu2 = _interopRequireDefault(_Menu);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Container = _styledComponents2.default.div(_templateObject);
+
+var Main = _styledComponents2.default.div(_templateObject2);
+
+var Game = function (_Component) {
+  _inherits(Game, _Component);
+
+  function Game(props) {
+    _classCallCheck(this, Game);
+
+    var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
+
+    _this.state = {
+      shouldMenuShow: true,
+      difficulty: 0
+    };
+    _this.onPlay = _this.onPlay.bind(_this);
+    _this.onDifficulty = _this.onDifficulty.bind(_this);
+    return _this;
+  }
+
+  _createClass(Game, [{
+    key: 'onPlay',
+    value: function onPlay() {
+      this.setState(function (prev) {
+        return { shouldMenuShow: !prev.shouldMenuShow };
+      });
+    }
+  }, {
+    key: 'onDifficulty',
+    value: function onDifficulty(difficulty) {
+      this.setState({ difficulty: difficulty });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        Container,
+        null,
+        _react2.default.createElement(
+          Main,
+          null,
+          _react2.default.createElement(_Menu2.default, {
+            show: this.state.shouldMenuShow,
+            difficulty: this.state.difficulty,
+            onPlay: this.onPlay,
+            onDifficulty: this.onDifficulty
+          })
+        )
+      );
+    }
+  }]);
+
+  return Game;
+}(_react.Component);
+
+exports.default = Game;
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  background: #304860;\n  transform: ', ';\n  transition: 0.2s all ease-in-out;\n'], ['\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  background: #304860;\n  transform: ', ';\n  transition: 0.2s all ease-in-out;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  background: #b7c7d7;\n  color: #304860;\n  border-radius: 5px;\n  align-items: center;\n  width: calc(100% - 150px);\n  height: 200px;\n  letter-spacing: 2px;\n  margin-bottom: 20px;\n'], ['\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  background: #b7c7d7;\n  color: #304860;\n  border-radius: 5px;\n  align-items: center;\n  width: calc(100% - 150px);\n  height: 200px;\n  letter-spacing: 2px;\n  margin-bottom: 20px;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  font-size: 36px;\n'], ['\n  font-size: 36px;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n  &:first-child {\n    padding-top: 20px;\n  }\n  &:last-child {\n    padding-top: 10px;\n  }\n'], ['\n  &:first-child {\n    padding-top: 20px;\n  }\n  &:last-child {\n    padding-top: 10px;\n  }\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n  width: 60px;\n  height: 50px;\n  background: url(\'icons/play.svg\');\n  margin-bottom: 40px;\n'], ['\n  width: 60px;\n  height: 50px;\n  background: url(\'icons/play.svg\');\n  margin-bottom: 40px;\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background: ', ';\n  height: 38px;\n  width: 90px;\n  border-radius: 5px;\n  font-size: 14px;\n  cursor: pointer;\n  color: ', ';\n  letter-spacing: 2px;\n  border: 2px solid #b7c7d7;\n'], ['\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background: ', ';\n  height: 38px;\n  width: 90px;\n  border-radius: 5px;\n  font-size: 14px;\n  cursor: pointer;\n  color: ', ';\n  letter-spacing: 2px;\n  border: 2px solid #b7c7d7;\n']),
+    _templateObject7 = _taggedTemplateLiteral(['\n  display: flex;\n  justify-content: space-between;\n  width: calc(100% - 150px);\n'], ['\n  display: flex;\n  justify-content: space-between;\n  width: calc(100% - 150px);\n']);
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(29);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Container = _styledComponents2.default.div(_templateObject, function (props) {
+  return props.show ? 'translateY(0px)' : 'translateY(-100%)';
+});
+var Pop = _styledComponents2.default.div(_templateObject2);
+var BigText = _styledComponents2.default.div(_templateObject3);
+var ScoreText = _styledComponents2.default.div(_templateObject4);
+var PlayButton = _styledComponents2.default.div(_templateObject5);
+
+var SpeedButton = _styledComponents2.default.div(_templateObject6, function (props) {
+  return props.selected ? '#b7c7d7' : '#304860';
+}, function (props) {
+  return props.selected ? '#304860' : '#b7c7d7';
+});
+var SpeedButtonContainer = _styledComponents2.default.div(_templateObject7);
+
+var Menu = function (_Component) {
+  _inherits(Menu, _Component);
+
+  function Menu() {
+    _classCallCheck(this, Menu);
+
+    return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+  }
+
+  _createClass(Menu, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          show = _props.show,
+          difficulty = _props.difficulty,
+          onPlay = _props.onPlay,
+          onDifficulty = _props.onDifficulty;
+
+      return _react2.default.createElement(
+        Container,
+        { show: show },
+        _react2.default.createElement(
+          Pop,
+          null,
+          _react2.default.createElement(
+            BigText,
+            null,
+            'Game Over'
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              ScoreText,
+              null,
+              'Score: 0'
+            ),
+            _react2.default.createElement(
+              ScoreText,
+              null,
+              'Best Score: 0'
+            )
+          )
+        ),
+        _react2.default.createElement(PlayButton, { onClick: onPlay }),
+        _react2.default.createElement(
+          SpeedButtonContainer,
+          null,
+          _react2.default.createElement(
+            SpeedButton,
+            { selected: difficulty === 0, onClick: function onClick() {
+                onDifficulty(0);
+              } },
+            'easy'
+          ),
+          _react2.default.createElement(
+            SpeedButton,
+            { selected: difficulty === 1, onClick: function onClick() {
+                onDifficulty(1);
+              } },
+            'medium'
+          ),
+          _react2.default.createElement(
+            SpeedButton,
+            { selected: difficulty === 2, onClick: function onClick() {
+                onDifficulty(2);
+              } },
+            'hard'
+          )
+        )
+      );
+    }
+  }]);
+
+  return Menu;
+}(_react.Component);
+
+exports.default = Menu;
 
 /***/ })
 /******/ ]);
