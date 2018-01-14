@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,6 +41,7 @@ const ScoreText = styled.div`
   }
 `
 const PlayButton = styled.div`
+  cursor: pointer;
   width: 60px;
   height: 50px;
   background: url('icons/play.svg');
@@ -64,15 +69,17 @@ const SpeedButtonContainer = styled.div`
 `
 export default class Menu extends Component {
   render() {
-    const { show, difficulty, onPlay , onDifficulty} = this.props
+    const { show, difficulty, onPlay , onDifficulty, score, bestScore, isThisFirstTime} = this.props
     return (
       <Container show={show}>
           <Pop>
-            <BigText>Game Over</BigText>
-            <div>
-              <ScoreText>Score: 0</ScoreText>
-              <ScoreText>Best Score: 0</ScoreText>
-            </div>
+            <BigText>{isThisFirstTime ? 'Welcome' : 'Game Over'}</BigText>
+            {!isThisFirstTime &&
+              <div>
+                <ScoreText>Score: {score}</ScoreText>
+                <ScoreText>Best Score: {bestScore}</ScoreText>
+              </div>
+            }
           </Pop>
           <PlayButton onClick={onPlay} />
           <SpeedButtonContainer>

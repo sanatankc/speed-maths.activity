@@ -10,5 +10,8 @@
       "sugar-web": "github:sugarlabs/sugar-web/master",
       "domReady": "github:requirejs/domReady/2.0.1"
     }
+  },
+  "dependencies": {
+    "timer-stopwatch": "^0.2.0"
   }
 }
